@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import SignUpForm from "../signUp";
 import SignIn from "../signIn";
 import MyProfile from "../myProfile";
+import EditProfile from "../editProfile";
 
 const App: React.FC = () => {
     return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
                 <Route path="/sign-up" element={<SignUpForm />} />
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/my-profile" element={<MyProfile />} />
+                <Route path="/edit-profile" element={<EditProfile />} />
             </Routes>
         </BrowserRouter>
     );
