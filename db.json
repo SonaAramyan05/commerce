@@ -1,0 +1,96 @@
+{
+  "users": [
+    {
+      "id": "505e",
+      "firstName": "a",
+      "lastName": "ddd",
+      "imageUrl": "https://www.kasandbox.org/programming-images/avatars/old-spice-man-blue.png",
+      "email": "d@d.d",
+      "phone": "43",
+      "password": "22"
+    }
+  ],
+  "admins": [
+    {
+      "id": "1",
+      "username": "admin1",
+      "password": "password1"
+    },
+    {
+      "id": "2",
+      "username": "admin2",
+      "password": "password2"
+    }
+  ],
+  "movies": [
+    {
+      "id": "1",
+      "title": "incredible",
+      "description": "more incredible",
+      "year": "2025",
+      "country": "Armenia",
+      "rating": "10",
+      "genres": [
+        "drama",
+        " abc"
+      ],
+      "actors": [
+        "actor a",
+        " actor b",
+        " actor c"
+      ],
+      "imageUrl": "https://www.kasandbox.org/programming-images/avatars/primosaur-sapling.png",
+      "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg"
+    },
+    {
+      "id": "2",
+      "title": "sdf",
+      "description": "asd",
+      "year": 0,
+      "country": "Armenia",
+      "rating": 0,
+      "genres": [
+        "ddd"
+      ],
+      "actors": [
+        "dafs"
+      ],
+      "imageUrl": "https://www.kasandbox.org/programming-images/avatars/purple-pi.png",
+      "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    },
+    {
+      "id": "3",
+      "title": "testingfilm",
+      "description": "smth",
+      "year": "2000",
+      "country": "usa",
+      "rating": "5.5",
+      "genres": [
+        "drama",
+        "melodrama"
+      ],
+      "actors": [
+        "leo dicaprio",
+        " emilia clark"
+      ],
+      "imageUrl": "https://www.kasandbox.org/programming-images/avatars/old-spice-man-blue.png",
+      "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+    },
+    {
+      "id": "9d0ce76a-bad4-4319-b332-2a11ff12737b",
+      "title": "afds",
+      "description": "adsfa",
+      "year": "1999",
+      "country": "eee",
+      "rating": "6",
+      "genres": [
+        "dsa"
+      ],
+      "actors": [
+        "asfdf"
+      ],
+      "imageUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg",
+      "videoUrl": "\"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+    }
+  ]
+}
