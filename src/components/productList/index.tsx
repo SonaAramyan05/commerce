@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Item } from "../../types";
-import { getItems } from "../../store/product/productSlice";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../store";
-import ProductDetails from "../productDetails";
 import Product from "../product";
-import { itemsSelector } from "../../store/product/productSelector";
-import { CartItemsSelector } from "../../store/cart/cartSelector";
-import SortingDropdown from "../sortingDropdown";
 import { useNavigate } from "react-router-dom";
+import { Item } from "../../types";
+import useSortedProducts from "../../hooks/useSortedProducts";
+import { getItems } from "../../store/product/productSlice";
 
 const ProductList: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
     const navigate = useNavigate();
-    const items = useSelector(itemsSelector);
-    const cartItems = useSelector(CartItemsSelector);
+    const {
+        sortedAndFilteredProducts,
+        SortingDropdown,
+        PriceRangeInput,
+        SearchInput,
+    } = useSortedProducts("price", "asc", 0, 50000, "");
+
     useEffect(() => {
         dispatch(getItems());
-    }, [cartItems]);
+    }, [dispatch]);
 
     const handleClick = (item: Item) => {
         navigate(`/products/${item.id}`);
@@ -25,9 +27,11 @@ const ProductList: React.FC = () => {
 
     return (
         <div>
-            {/* <SortingDropdown sortBy=""/> */}
             <h2>Product List</h2>
-            {items.map((item: Item) => (
+            {SortingDropdown}
+            {PriceRangeInput}
+            {SearchInput}
+            {sortedAndFilteredProducts.map((item: Item) => (
                 <Product
                     key={item.id}
                     item={item}
