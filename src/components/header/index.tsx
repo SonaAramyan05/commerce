@@ -6,6 +6,7 @@ const Header: React.FC = () => {
         <div>
             <Link to="/my-profile">My Profile </Link>
             <Link to="/products">Products</Link>
+            <Link to="/add-product">Add product</Link>
             <Link to="/shopping-cart">Shopping cart</Link>
             <Link to="/orders">Orders</Link>
         </div>

@@ -3,94 +3,53 @@
     {
       "id": "505e",
       "firstName": "a3",
-      "lastName": "ddd1",
+      "lastName": "ddd3",
       "imageUrl": "https://www.kasandbox.org/programming-images/avatars/old-spice-man-blue.png",
       "email": "d@d.d",
       "phone": "43",
       "password": "22"
     }
   ],
-  "admins": [
+  "items": [
     {
-      "id": "1",
-      "username": "admin1",
-      "password": "password1"
+      "id": "371ab12a-a0d3-4270-88ea-a317533e5633",
+      "title": "inch vor ban",
+      "description": "desc",
+      "imageUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg",
+      "count": 0,
+      "price": "2000"
     },
     {
-      "id": "2",
-      "username": "admin2",
-      "password": "password2"
+      "id": "371ab12a-a0d3-4270-88ea-a317533e5655",
+      "title": "urish",
+      "description": "nuyn nkarov",
+      "imageUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg",
+      "count": 13,
+      "price": "1000"
+    },
+    {
+      "id": "371ab12a-a0d3-4270-88ea-a317533e56d0",
+      "title": "3try",
+      "description": "adsf",
+      "imageUrl": "notexisting",
+      "count": 3,
+      "price": "4"
     }
   ],
-  "movies": [
+  "orders": [
     {
-      "id": "1",
-      "title": "incredible",
-      "description": "more incredible",
-      "year": "2025",
-      "country": "Armenia",
-      "rating": "10",
-      "genres": [
-        "drama",
-        " abc"
-      ],
-      "actors": [
-        "actor a",
-        " actor b",
-        " actor c"
-      ],
-      "imageUrl": "https://www.kasandbox.org/programming-images/avatars/primosaur-sapling.png",
-      "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg"
-    },
-    {
-      "id": "2",
-      "title": "sdf",
-      "description": "asd",
-      "year": 0,
-      "country": "Armenia",
-      "rating": 0,
-      "genres": [
-        "ddd"
-      ],
-      "actors": [
-        "dafs"
-      ],
-      "imageUrl": "https://www.kasandbox.org/programming-images/avatars/purple-pi.png",
-      "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-    },
-    {
-      "id": "3",
-      "title": "testingfilm",
-      "description": "smth",
-      "year": "2000",
-      "country": "usa",
-      "rating": "5.5",
-      "genres": [
-        "drama",
-        "melodrama"
-      ],
-      "actors": [
-        "leo dicaprio",
-        " emilia clark"
-      ],
-      "imageUrl": "https://www.kasandbox.org/programming-images/avatars/old-spice-man-blue.png",
-      "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-    },
-    {
-      "id": "9d0ce76a-bad4-4319-b332-2a11ff12737b",
-      "title": "afds",
-      "description": "adsfa",
-      "year": "1999",
-      "country": "eee",
-      "rating": "6",
-      "genres": [
-        "dsa"
-      ],
-      "actors": [
-        "asfdf"
-      ],
-      "imageUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg",
-      "videoUrl": "\"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+      "id": "8f557da6-cb23-4112-9fb4-031bb7e28360",
+      "date": "2024-03-15T18:25:34.675Z",
+      "items": [
+        {
+          "id": "371ab12a-a0d3-4270-88ea-a317533e5655",
+          "title": "urish",
+          "description": "nuyn nkarov",
+          "imageUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg",
+          "count": 2,
+          "price": "1000"
+        }
+      ]
     }
   ]
 }

@@ -6,6 +6,10 @@ import SignUpForm from "../signUp";
 import SignIn from "../signIn";
 import MyProfile from "../myProfile";
 import EditProfile from "../editProfile";
+import AddProduct from "../addProduct";
+import ProductList from "../productList";
+import ShoppingCart from "../shoppingCart";
+import Orders from "../orders";
 
 const App: React.FC = () => {
     return (
@@ -17,6 +21,10 @@ const App: React.FC = () => {
                 <Route path="/sign-in" element={<SignIn />} />
                 <Route path="/my-profile" element={<MyProfile />} />
                 <Route path="/edit-profile" element={<EditProfile />} />
+                <Route path="/add-product" element={<AddProduct />} />
+                <Route path="/products" element={<ProductList />} />
+                <Route path="/shopping-cart" element={<ShoppingCart />} />
+                <Route path="/orders" element={<Orders />} />
             </Routes>
         </BrowserRouter>
     );
