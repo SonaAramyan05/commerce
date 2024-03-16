@@ -1,11 +1,16 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { User } from "../../types";
-import { currentUserSelector } from "../../store/user/userSelector";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { User } from "../../types";
 
 const MyProfile: React.FC = () => {
-    const currentUser: User | null = useSelector(currentUserSelector);
+    const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+    useEffect(() => {
+        const userData = localStorage.getItem("currentUser");
+        if (userData) {
+            setCurrentUser(JSON.parse(userData));
+        }
+    }, []);
 
     return (
         <div>
@@ -31,7 +36,9 @@ const MyProfile: React.FC = () => {
                     <p>Phone: {currentUser.phone}</p>
                 </div>
             )}
-            <Link to={"/edit-profile"}><button>EDIT PROFILE</button></Link>
+            <Link to={"/edit-profile"}>
+                <button>EDIT PROFILE</button>
+            </Link>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../store";
@@ -11,7 +11,12 @@ const SignIn: FC = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({ email: "", password: "" });
     const isLoggedIn = useSelector(isSignedInSelector);
-
+    useEffect(() => {
+        const storedUser = localStorage.getItem("currentUser");
+        if (storedUser) {
+            dispatch(setCurrentUser(JSON.parse(storedUser)));
+        }
+    }, [dispatch]);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setFormData((prevState) => ({
@@ -25,9 +30,14 @@ const SignIn: FC = () => {
         const { email, password } = formData;
         const actionResult = await dispatch(signinUser({ email, password }));
         if (isLoggedIn) {
+            localStorage.setItem(
+                "currentUser",
+                JSON.stringify(actionResult.payload)
+            );
+            localStorage.setItem("isSignedIn", "true");
             dispatch(setCurrentUser(actionResult.payload));
-            navigate("/my-profile");
         }
+        navigate("/my-profile");
     };
 
     const handleSignUpClick = () => {
