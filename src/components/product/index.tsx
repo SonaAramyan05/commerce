@@ -14,7 +14,15 @@ const Product: React.FC<ProductProps> = ({ item, onClick, isDisabled }) => {
     const dispatch: AppDispatch = useDispatch();
 
     const handleAddToCart = async () => {
-        await dispatch(addToCartAndUpdateProductCount(item));
+        const updatedCount = item.count - 1;
+        const newItem = { ...item, count: updatedCount };
+        await dispatch(
+            addToCartAndUpdateProductCount({
+                item: newItem,
+                quantity: 1,
+            })
+        );
+        window.alert("item added");
     };
 
     return (

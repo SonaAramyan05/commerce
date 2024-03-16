@@ -12,15 +12,22 @@ const ShoppingCart: React.FC = () => {
     const handleCheckout = () => {
         dispatch(addOrder(cartItems));
         dispatch(clearCart());
+        window.alert("Purchase was successful!");
     };
 
     return (
         <div>
             <h2>Shopping Cart</h2>
-            {cartItems.map((item) => (
-                <CartItem key={item.id} item={item} />
-            ))}
-            <button onClick={handleCheckout}>Checkout</button>
+            {cartItems.length === 0 ? (
+                <p>There is no items in cart yet</p>
+            ) : (
+                <>
+                    {cartItems.map((item) => (
+                        <CartItem key={item.id} item={item} />
+                    ))}
+                    <button onClick={handleCheckout}>Checkout</button>
+                </>
+            )}
         </div>
     );
 };

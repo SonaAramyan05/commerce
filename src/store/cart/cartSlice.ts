@@ -12,14 +12,11 @@ const initialState: CartState = {
 
 export const addToCartAndUpdateProductCount = createAsyncThunk(
     "cart/addToCartAndUpdateProductCount",
-    async (item: Item) => {
+    async ({ item, quantity }: { item: Item; quantity: number }) => {
         try {
-            const updatedItem = { ...item, count: item.count - 1 };
-            await axios.put(
-                `http://localhost:8000/items/${item.id}`,
-                updatedItem
-            );
-            return item;
+            // const updatedItem = { ...item, count: item.count - 1 };
+            await axios.put(`http://localhost:8000/items/${item.id}`, item);
+            return { item, quantity };
         } catch (error) {
             throw error;
         }
@@ -52,13 +49,15 @@ export const cartSlice = createSlice({
         builder.addCase(
             addToCartAndUpdateProductCount.fulfilled,
             (state, action) => {
+                const { item, quantity } = action.payload;
+
                 const existingItem = state.items.find(
-                    (item) => item.id === action.payload.id
+                    (item) => item.id === action.payload.item.id
                 );
                 if (existingItem) {
-                    existingItem.count++;
+                    existingItem.count += quantity;
                 } else {
-                    const newItem = { ...action.payload, count: 1 };
+                    const newItem = { ...item, count: quantity };
                     state.items.push(newItem);
                 }
             }

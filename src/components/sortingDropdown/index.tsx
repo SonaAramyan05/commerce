@@ -17,8 +17,8 @@ const SortingDropdown: React.FC<SortingDropdownProps> = ({
         <div>
             <label htmlFor="sortBy">Sort By:</label>
             <select id="sortBy" value={sortBy} onChange={onSortByChange}>
-                <option value="year">Year</option>
-                <option value="rating">Rating</option>
+                <option value="price">price</option>
+                <option value="title">title</option>
             </select>
             <select value={sortOrder} onChange={onSortOrderChange}>
                 <option value="asc">Ascending</option>

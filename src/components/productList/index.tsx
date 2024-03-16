@@ -7,39 +7,34 @@ import ProductDetails from "../productDetails";
 import Product from "../product";
 import { itemsSelector } from "../../store/product/productSelector";
 import { CartItemsSelector } from "../../store/cart/cartSelector";
+import SortingDropdown from "../sortingDropdown";
+import { useNavigate } from "react-router-dom";
 
 const ProductList: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
+    const navigate = useNavigate();
     const items = useSelector(itemsSelector);
     const cartItems = useSelector(CartItemsSelector);
-    const [selectedItem, setSelectedItem] = useState<Item | null>(null);
-
     useEffect(() => {
         dispatch(getItems());
     }, [cartItems]);
 
     const handleClick = (item: Item) => {
-        setSelectedItem(item);
+        navigate(`/products/${item.id}`);
     };
 
     return (
         <div>
+            {/* <SortingDropdown sortBy=""/> */}
             <h2>Product List</h2>
-            {selectedItem ? (
-                <ProductDetails
-                    item={selectedItem}
-                    isDisabled={selectedItem.count <= 0}
+            {items.map((item: Item) => (
+                <Product
+                    key={item.id}
+                    item={item}
+                    onClick={() => handleClick(item)}
+                    isDisabled={item.count <= 0}
                 />
-            ) : (
-                items.map((item: Item) => (
-                    <Product
-                        key={item.id}
-                        item={item}
-                        onClick={() => handleClick(item)}
-                        isDisabled={item.count <= 0}
-                    />
-                ))
-            )}
+            ))}
         </div>
     );
 };

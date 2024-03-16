@@ -6,3 +6,11 @@ export const itemsSelector = createSelector(
     productsSelector,
     (product) => product.items
 );
+export const productCountSelector = createSelector(
+    itemsSelector,
+    (items) =>
+        items.map((item) => ({
+            id: item.id,
+            count: item.count,
+        }))
+);

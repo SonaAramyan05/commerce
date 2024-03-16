@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../store";
 import { removeItem, updateItemCount } from "../../store/cart/cartSlice";
 import { Item } from "../../types";
+import { productCountSelector } from "../../store/product/productSelector";
 
 interface ItemProps {
     item: Item;
@@ -11,10 +12,19 @@ interface ItemProps {
 const CartItem: React.FC<ItemProps> = ({ item }) => {
     const dispatch: AppDispatch = useDispatch();
     const [count, setCount] = useState(item.count);
+    const productCountsArray = useSelector(productCountSelector);
 
     const handleChangeCount = (newCount: number) => {
-        setCount(newCount);
-        dispatch(updateItemCount({ id: item.id, count: newCount }));
+        const productCount =
+            productCountsArray.find((product) => product.id === item.id)
+                ?.count || 0;
+
+        if (newCount <= productCount) {
+            setCount(newCount);
+            dispatch(updateItemCount({ id: item.id, count: newCount }));
+        } else {
+            alert(`unsuffiecient number of items`);
+        }
     };
 
     const handleRemoveItem = () => {

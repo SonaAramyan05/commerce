@@ -10,8 +10,11 @@ import AddProduct from "../addProduct";
 import ProductList from "../productList";
 import ShoppingCart from "../shoppingCart";
 import Orders from "../orders";
+import { itemsSelector } from "../../store/product/productSelector";
+import ProductDetails from "../productDetails";
 
 const App: React.FC = () => {
+    const products = useSelector(itemsSelector)
     return (
         <BrowserRouter>
             <Header />
@@ -23,6 +26,13 @@ const App: React.FC = () => {
                 <Route path="/edit-profile" element={<EditProfile />} />
                 <Route path="/add-product" element={<AddProduct />} />
                 <Route path="/products" element={<ProductList />} />
+                {products.map((product) => (
+                    <Route
+                        key={product.id}
+                        path={`/products/${product.id}`}
+                        element={<ProductDetails item={product} />}
+                    />
+                ))}
                 <Route path="/shopping-cart" element={<ShoppingCart />} />
                 <Route path="/orders" element={<Orders />} />
             </Routes>
